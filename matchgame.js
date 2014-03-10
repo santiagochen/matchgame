@@ -69,7 +69,7 @@ GameMaster.prototype = function(){
 		}
 		switch(_level){
 			case 1:
-			_timehas = 3;
+			_timehas = 60;
 			break;
 			case 2:
 			_timehas = 55;
