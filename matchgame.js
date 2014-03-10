@@ -1,6 +1,6 @@
 
 /*
- * Word War
+ * Match Game
  * Santiago Chen made it
  * santiago1209@foxmail.com
  * =========================
