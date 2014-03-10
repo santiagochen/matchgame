@@ -1,0 +1,21 @@
+body{ ont-size: 14px;color: #333;line-height: 16px;}
+div,h,span,p,{margin: 0; padding: 0; display: block; }
+ul, li{list-style: none;}
+.matchct{position: absolute; top:2px; padding: 2px; margin: 0;}
+.timediv{font-size: 12px; background: #333; color: #fff; padding:0; margin: 0;}
+.newstart{text-align:center; padding:10% 10%; position: absolute; top: 28%; left: 15%; background: #666; color: #fff; cursor: pointer;}
+.matchwrap{position: relative;}
+#matchul {list-style: none; position: relative; padding: 0;}
+li.matchli {width: 30px; height: 30px; display: inline-block; text-align: center; cursor: pointer; text-indent: -999em; margin: 1px;border:solid 1px #fff;}
+.default{background: #333; }
+
+/*All Images For MatchGame*/
+.class0{background: url(sample1.jpg);}
+.class1{background: url(sample2.jpg);}
+.class2{background: url(sample3.jpg);}
+.class3{background: url(sample4.jpg);}
+.class4{background: url(sample5.jpg);}
+.class5{background: url(sample6.jpg);}
+.class6{background: url(sample7.jpg);}
+.class7{background: url(sample8.jpg);}
+
