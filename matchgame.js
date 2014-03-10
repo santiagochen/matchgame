@@ -1,5 +1,18 @@
 
+/*
+ * Word War
+ * Santiago Chen made it
+ * santiago1209@foxmail.com
+ * =========================
+ * Parameters
+ * this.pattern = 1; range: 1,2,3,4
+ * this.level = 1; range: 1,2,3,4
+ * =========================
+*/
 
+/*
+ *Card Class
+ */
 function Card(value,cl,index){
 	var _self = this;
 	this._value = value;
@@ -9,29 +22,29 @@ function Card(value,cl,index){
 	});
 	return this;
 }
-Card.prototype = function(){
-	return{}
-}()
 
 
+/*
+ *GameMaster Class
+ */
 function GameMaster(){
 	//this.mode = first timemode second countclickmode
 	this.level = 1; //total4
-	this.patten = 1; //1 for 8pairs, 2 for 18pairs, 3 for 32pairs, 4 for 50pairs,
+	this.pattern = 1; //1 for 8pairs, 2 for 18pairs, 3 for 32pairs, 4 for 50pairs,
 
 }
 
 GameMaster.prototype = function(){
 	
-	var _level,_patten,_textarr,_cardbuntch=[],_wrap = $('<div class="matchwrap"></div>'), 
+	var _level,_pattern,_textarr,_cardbuntch=[],_wrap = $('<div class="matchwrap"></div>'), 
 		_wrapcard=$('<ul id="matchul"></ul>'),_wrapct=$('<ul class="matchct"></ul>'),_where,_selected=[],
 		_clickable=false,_right=0, _newstart = $('<div class="newstart">New Game</div>'),
 		_timeui = $('<li class="timediv">剩余时间:<span id="lefttime">00</span></li>'),
-		_timer,_interval;
+		_timehas,_timer,_interval;
 	init = function(where){
 		var _self=this;
 		_level = Math.min(Math.max(1,this.level),4),
-		_patten = Math.min(Math.max(1,this.patten),4);
+		_pattern = Math.min(Math.max(1,this.pattern),4);
 		_newstart.on("click",_self,startgame);
 		
 		_where = where||$(document.body);
@@ -40,7 +53,7 @@ GameMaster.prototype = function(){
 		_wrap.append(_wrapct);
 		_wrapct.append(_timeui);
 
-		switch(_patten){
+		switch(_pattern){
 			case 1:
 			_textarr = new Array(8);
 			break;
@@ -56,16 +69,16 @@ GameMaster.prototype = function(){
 		}
 		switch(_level){
 			case 1:
-			_timer = 60;
+			_timehas = 3;
 			break;
 			case 2:
-			_timer = 55;
+			_timehas = 55;
 			break;
 			case 3:
-			_timer = 50;
+			_timehas = 50;
 			break;
 			case 4:
-			_timer = 40;
+			_timehas = 40;
 			break;
 		}
 
@@ -85,6 +98,7 @@ GameMaster.prototype = function(){
 		}
 		$(this).hide();
 		_clickable=true;
+		_timer = _timehas;
 		_interval = setInterval(function(){
 			_timer--;
 			_timeui.find("#lefttime").html(_timer);
@@ -95,7 +109,7 @@ GameMaster.prototype = function(){
 		},1000);
 	}
 	onwinhandler = function(e,data){
-		_newstart.html(data+"\r"+_newstart.html()).show();
+		_newstart.html(data+"\r"+"Start?").show();
 		_clickable = false;
 		//console.log(data)
 
@@ -117,6 +131,10 @@ GameMaster.prototype = function(){
 
 		_wrapct.appendTo(_wrap).css({
 			"right":-_wrapct.outerWidth(true),
+		});
+		_newstart.css({
+			'width':_wrapcard.outerWidth(true)*.6,
+			'left': _wrapcard.outerWidth(true)*.1
 		});
 		_wrap.append(_newstart);
 		_timeui.find("#lefttime").html(_timer);
@@ -195,8 +213,7 @@ GameMaster.prototype = function(){
 	}
 	return{
 		init:init,
-		shuffle:shuffle,
-		onwinhandler:onwinhandler
+		shuffle:shuffle
 	}
 
 }()

@@ -3,7 +3,7 @@ div,h,span,p,{margin: 0; padding: 0; display: block; }
 ul, li{list-style: none;}
 .matchct{position: absolute; top:2px; padding: 2px; margin: 0;}
 .timediv{font-size: 12px; background: #333; color: #fff; padding:0; margin: 0;}
-.newstart{text-align:center; padding:10% 10%; position: absolute; top: 28%; left: 15%; background: #666; color: #fff; cursor: pointer;}
+.newstart{text-align:center; padding:10% 10%; position: absolute; top: 28%; /* left: 15%; */ background: #666; color: #fff; cursor: pointer;}
 .matchwrap{position: relative;}
 #matchul {list-style: none; position: relative; padding: 0;}
 li.matchli {width: 30px; height: 30px; display: inline-block; text-align: center; cursor: pointer; text-indent: -999em; margin: 1px;border:solid 1px #fff;}
