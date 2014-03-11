@@ -188,7 +188,7 @@ GameMaster.prototype = function(){
 						_selected = [];
 						_clickable = true;
 						_right++;
-						if(_right==_cardbuntch.length/2){$(e.data).trigger("win","Game Win")}
+						if(_right==_cardbuntch.length/2){$(e.data).trigger("win","Game Win");clearInterval(_interval);}
 					}
 					else{
 						setTimeout(function(){
